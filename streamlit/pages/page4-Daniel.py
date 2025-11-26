@@ -2,7 +2,38 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 from pathlib import Path
+st.markdown(
+    """
+    <style>
+        /* White background everywhere */
+        .main, body, html {
+            background-color: white !important;
+        }
 
+        /* Headings = Blockbuster Yellow */
+        h1, h2, h3 {
+            color: #FFD200 !important;
+            font-weight: 700 !important;
+        }
+
+        /* Normal text = Blockbuster Blue */
+        p, div, span, label, .stMetric, .stText, .stMarkdown {
+            color: #0046AD !important;
+        }
+
+        /* Sidebar background white */
+        section[data-testid="stSidebar"] {
+            background-color: white !important;
+        }
+
+        /* Sidebar text blue */
+        section[data-testid="stSidebar"] * {
+            color: #0046AD !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 base = Path(__file__).resolve().parents[2] / "data" / "output"
 
 film = pd.read_csv(base / "film.csv")

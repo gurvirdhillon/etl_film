@@ -2,7 +2,38 @@ import streamlit as st
 import pandas as pd
 import os
 
+st.markdown(
+    """
+    <style>
+        /* White background everywhere */
+        .main, body, html {
+            background-color: white !important;
+        }
 
+        /* Headings = Blockbuster Yellow */
+        h1, h2, h3 {
+            color: #FFD200 !important;
+            font-weight: 700 !important;
+        }
+
+        /* Normal text = Blockbuster Blue */
+        p, div, span, label, .stMetric, .stText, .stMarkdown {
+            color: #0046AD !important;
+        }
+
+        /* Sidebar background white */
+        section[data-testid="stSidebar"] {
+            background-color: white !important;
+        }
+
+        /* Sidebar text blue */
+        section[data-testid="stSidebar"] * {
+            color: #0046AD !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 # Title
 
 st.title("Revenue and Customer Analysis Dashboard")
