@@ -56,3 +56,24 @@ fig2 = px.bar(
 
 st.plotly_chart(fig2, use_container_width=True)
 
+st.divider()
+
+df['rental_date'] = pd.to_datetime(df['rental_date'])
+df['return_date'] = pd.to_datetime(df['return_date'])
+df['rental_duration_days'] = (df['return_date'] - df['rental_date']).dt.days
+avg_duration_per_rating = df.groupby('rating')['rental_duration_days'].mean().reset_index()
+
+st.header("Average Rental Duration per Rating")
+
+fig = px.bar(
+    avg_duration_per_rating,
+    x='rating',
+    y='rental_duration_days',
+    title='Average Rental Duration (Days) by Rating',
+    color='rating',
+    category_orders={"rating": ["G", "PG", "PG-13", "R", "NC-17"]},
+    text='rental_duration_days'
+)
+
+fig.update_traces(texttemplate='%{text:.2f} days', textposition='outside')
+st.plotly_chart(fig)
