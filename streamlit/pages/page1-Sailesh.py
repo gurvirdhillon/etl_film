@@ -2,14 +2,14 @@ import streamlit as st
 import pandas as pd
 import os
 
-# -----------------------------
+
 # Title
-# -----------------------------
+
 st.title("Revenue and Customer Analysis Dashboard")
 
-# -----------------------------
+
 # Paths
-# -----------------------------
+
 # Calculate the correct base directory
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))  # etl_film folder
 OUTPUT_DIR = os.path.join(BASE_DIR, "data", "output")
@@ -24,9 +24,9 @@ CSV_FILES = {
     "Film_Actor": "film_actor.csv"
 }
 
-# -----------------------------
+
 # Load CSVs
-# -----------------------------
+
 data = {}
 
 for key, file in CSV_FILES.items():
@@ -34,7 +34,7 @@ for key, file in CSV_FILES.items():
     if os.path.exists(path):
         try:
             data[key] = pd.read_csv(path)
-            st.write(f"{key} CSV loaded successfully.")
+           # st.write(f"{key} CSV loaded successfully.")
         except Exception as e:
             st.error(f"Error loading {key} CSV: {e}")
             data[key] = None
@@ -42,9 +42,9 @@ for key, file in CSV_FILES.items():
         st.warning(f"{key} CSV NOT found at path: {path}")
         data[key] = None
 
-# -----------------------------
+
 # Revenue by Category
-# -----------------------------
+
 if data["Revenue"] is not None:
     st.subheader("Revenue by Film Category")
     df_rev = data["Revenue"]
@@ -53,9 +53,8 @@ if data["Revenue"] is not None:
 else:
     st.info("Revenue data not available.")
 
-# -----------------------------
 # Payment Dates Filter
-# -----------------------------
+
 if data["Payment"] is not None:
     df_pay = data["Payment"]
     
@@ -80,9 +79,9 @@ if data["Payment"] is not None:
 else:
     st.info("Payment data not available for date filtering.")
 
-# -----------------------------
-# Top Customers
-# -----------------------------
+
+# Top 10 Customers
+
 if data["Customer"] is not None and data["Payment"] is not None:
     st.subheader("Top 10 Customers by Payment Amount")
     df_cust = data["Customer"]
@@ -93,9 +92,9 @@ if data["Customer"] is not None and data["Payment"] is not None:
 else:
     st.info("Customer data not available.")
 
-# -----------------------------
+
 # Most Rented Films
-# -----------------------------
+
 if data["Rental"] is not None and data["Film"] is not None and data["Film_Actor"] is not None:
     st.subheader("Most Rented Films")
     df_rental = data["Rental"]
@@ -115,9 +114,9 @@ else:
     st.info("Film rental data not available.")
 
 
-# -----------------------------
+
 # Interactive Revenue Filter (Multiple Categories)
-# -----------------------------
+
 if data["Revenue"] is not None and data["Payment"] is not None:
     st.subheader("Interactive Revenue Filter by Category and Month")
     
