@@ -1,11 +1,14 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+from pathlib import Path
 
-film = pd.read_csv("data/output/film.csv")
-inventory = pd.read_csv("data/output/inventory.csv")
-rental = pd.read_csv("data/output/rental.csv")
-payment = pd.read_csv("data/output/payment.csv")
+base = Path(__file__).resolve().parents[2] / "data" / "output"
+
+film = pd.read_csv(base / "film.csv")
+inventory = pd.read_csv(base / "inventory.csv")
+rental = pd.read_csv(base / "rental.csv")
+payment = pd.read_csv(base / "payment.csv")
 
 film_inventory = pd.merge(inventory, film, on="film_id", how="left")
 film_inventory_rentals = pd.merge(film_inventory, rental, on="inventory_id", how="left")
