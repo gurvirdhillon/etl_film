@@ -1,7 +1,8 @@
 import os
 import sys
 from config.env_config import setup_env
-
+from src.extract.extract import table_to_csv
+from src.transform.transform import run_cleaners
 def main():
     if len(sys.argv) < 2:
         print("Usage: run_etl <env>")
@@ -11,9 +12,13 @@ def main():
     print(f"Running ETL for environment: {env}")
 
     if env == "dev":
-        # Call the ETL for dev environment
         print("Running ETL in development mode...")
-        # your ETL logic here
+        table_to_csv()
+        run_cleaners()
+        
+
+
+
     elif env == "test":
         print("Running ETL in production mode...")
         # prod ETL logic here

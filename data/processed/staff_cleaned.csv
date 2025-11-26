@@ -1,4 +1,4 @@
 ,staff_id,first_name,last_name,address_id,email,store_id,active,username,password,last_update,picture,manager_id
-0,1,Mike,Hillyer,3,Mike.Hillyer@sakilastaff.com,1,True,Mike,8cb2237d0679ca88db6464eac60da96345513964,2021-04-15 13:59:58.455171,<memory at 0x000001ECEB50FE80>,3.0
+0,1,Mike,Hillyer,3,Mike.Hillyer@sakilastaff.com,1,True,Mike,8cb2237d0679ca88db6464eac60da96345513964,2021-04-15 13:59:58.455171,<memory at 0x0000020CDE40BE80>,3.0
 1,2,Jon,Stephens,4,Jon.Stephens@sakilastaff.com,2,True,Jon,8cb2237d0679ca88db6464eac60da96345513964,2021-04-15 13:59:58.455171,,3.0
 2,3,Manny,McManager,50,mannymcmanager@managers.com,2,True,manny,manny,2021-04-15 14:01:59.184326,,

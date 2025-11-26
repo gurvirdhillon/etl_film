@@ -217,7 +217,7 @@ def clean_store(write_dir, read_dir):
     return True
 
 
-def main():
+def run_cleaners():
 
     count = 0
     write_dir = "data/processed/"
@@ -236,5 +236,3 @@ def main():
     print(f"Cleaning process complete with {count} failures")
 
 
-if __name__ == "__main__":
-    main()
