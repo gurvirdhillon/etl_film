@@ -1,13 +1,16 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
 import altair as alt
 
-df_payment = pd.read_csv("../../data/output/payment.csv")
-df_customer = pd.read_csv("../../data/output/customer.csv")
-df_store = pd.read_csv("../../data/output/store.csv")
-df_address = pd.read_csv("../../data/output/address.csv")
-df_city = pd.read_csv("../../data/output/city.csv")
-df_country = pd.read_csv("../../data/output/country.csv")
+base = Path(__file__).resolve().parents[2] / "data" / "output"
+
+df_payment = pd.read_csv(base / "payment.csv")
+df_customer = pd.read_csv(base /"customer.csv")
+df_store = pd.read_csv(base / "store.csv")
+df_address = pd.read_csv(base / "address.csv")
+df_city = pd.read_csv(base / "city.csv")
+df_country = pd.read_csv(base / "country.csv")
 
 df = df_payment.merge(df_customer[['customer_id', 'address_id']], on='customer_id', how='left')
 df = df.merge(df_address[['address_id', 'city_id']], on='address_id', how='left')
