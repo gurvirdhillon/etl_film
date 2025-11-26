@@ -74,10 +74,10 @@ Welcome to the team dashboard for the DVD rental project.
 
 Use the **menu on the left** to navigate to each person's analysis page:
 
-- **page1-Sailesh** – (e.g. core ETL / overview)
+- **page1-Sailesh** – Blockbuster insights by revenue and category
 - **page2-Sophia** – Blockbuster insights by category, country, rating & customers
-- **page3-Gurvir** – (e.g. store / staff performance)
-- **page3-Daniel** - 
+- **page3-Gurvir** – Blockbuster insights by customer country 
+- **page3-Daniel** - Blockbuster insights by film ratings
 
 Each page can have its own visuals, filters and commentary.
 """

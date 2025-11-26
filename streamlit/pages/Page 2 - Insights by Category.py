@@ -158,46 +158,6 @@ st.caption(
 )
 
 
-# ---------- REVENUE PER COUNTRY (WITH STORE FILTER) ----------
-st.header("2. Revenue per Country (with Store Filter)")
-
-stores = sorted(df["store_id"].dropna().unique())
-selected_stores = st.multiselect(
-    "Select store(s):",
-    options=stores,
-    default=stores,
-)
-
-filtered = df[df["store_id"].isin(selected_stores)].copy()
-
-country_rev = (
-    filtered.groupby("customer_country")["payment_amount"]
-    .sum()
-    .sort_values(ascending=False)
-)
-
-st.bar_chart(country_rev)
-
-st.dataframe(
-    country_rev.reset_index().rename(
-        columns={"payment_amount": "total_revenue"}
-    ),
-    hide_index=True,
-    use_container_width=True,
-)
-
-if not filtered.empty and not country_rev.empty:
-    top_country = country_rev.idxmax()
-    top_country_value = country_rev.max()
-    st.markdown(
-        f"""
-**Insight:**  
-For the selected store(s) **{', '.join(map(str, selected_stores))}**,  
-the top customer country is **{top_country}** with **£{top_country_value:,.2f}** in revenue.
-"""
-    )
-else:
-    st.info("No data for the selected store(s). Try adjusting the filters.")
 
 # ---------- REVENUE / PAYMENTS BY RATING ----------
 st.header("3. Revenue & Payments by Film Rating")
