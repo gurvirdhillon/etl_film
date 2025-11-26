@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
 
-df_customer = pd.read_csv("../../data/output/customer.csv")
-df_store = pd.read_csv("../../data/output/store.csv")
-df_payment = pd.read_csv("../../data/output/payment.csv")
+# 🔹 Dynamically set correct path (no more "../../")
+base = Path(__file__).resolve().parents[2] / "data" / "output"
+
+df_customer = pd.read_csv(base / "customer.csv")
+df_store = pd.read_csv(base / "store.csv")
+df_payment = pd.read_csv(base / "payment.csv")
 
 st.title("Revenue per store brought in")
 
@@ -14,4 +18,3 @@ full_data['store_id'] = full_data['store_id'].replace({1: 'Canada', 2: 'Australi
 
 revenue_by_store = full_data.groupby('store_id')['amount'].sum().reset_index()
 st.bar_chart(revenue_by_store.set_index('store_id'))
-
