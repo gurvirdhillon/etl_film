@@ -17,7 +17,7 @@ classifiers = [
 dynamic = ["dependencies"]
 
 [project.urls]
-Homepage = ""
+Homepage = "https://github.com/gurvirdhillon/etl_film.git"
 
 [project.scripts]
 run_etl = "scripts.run_etl:main"
