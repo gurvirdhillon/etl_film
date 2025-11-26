@@ -1,9 +1,8 @@
 from sqlalchemy import create_engine, text
 import pandas as pd
-import sys
 
 
-def table_to_dataframe():
+def table_to_csv():
 
     engine = create_engine("postgresql+psycopg2://de14_albe:modGdY98@data-sandbox.c1tykfvfhpit.eu-west-2.rds.amazonaws.com:5432/pagila?options=-csearch_path%3Dmain")
 
@@ -37,7 +36,7 @@ def main():
 
     # table_name = sys.argv[1]
     # columns = sys.argv[2]
-    table_to_dataframe()
+    table_to_csv()
 
 
 if __name__ == "__main__":
