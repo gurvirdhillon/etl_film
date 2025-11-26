@@ -28,28 +28,7 @@ def table_to_csv():
                 return
 
             try:
-                df.to_csv(f"data/output/{table_name}.csv", index=False)
+                df.to_csv(f"../data/output/{table_name}.csv", index=False)
                 print(f"Successfully updated {table_name} table")
             except Exception as e:
                 print(f"Failed to create or update {table_name} csv at data/output. Error: {e}")
-
-
-<<<<<<< HEAD
-def main():
-
-    # if len(sys.argv) < 2:
-    #     print("Usage: python extract.py <table_name>")
-    #     return
-
-    # table_name = sys.argv[1]
-    # columns = sys.argv[2]
-    table_to_dataframe()
-
-
-if __name__ == "__main__":
-    main()
-    
-print(f"{table_name}.csv extracted successfully")
-
-=======
->>>>>>> e9a34d3ef374213ab440671507c55020d923cbff

@@ -4,10 +4,10 @@ import pandas as pd
 def clean_actor(write_dir, read_dir):
 
     df = pd.read_csv(f"{read_dir}actor.csv")
-    
+
     if df is None:
         return False
-    
+
     # No cleaning was necessary
     df.to_csv(f"{write_dir}actor_cleaned.csv")
 
@@ -220,8 +220,8 @@ def clean_store(write_dir, read_dir):
 def run_cleaners():
 
     count = 0
-    write_dir = "data/processed/"
-    read_dir = "data/output/"
+    write_dir = "../data/processed/"
+    read_dir = "../data/output/"
 
     cleaners = [clean_actor, clean_address, clean_app_id, clean_category, clean_city, clean_country, clean_customer, clean_film_actor, clean_film, clean_inventory, clean_language, clean_payment, clean_rental, clean_staff, clean_store]  
 
