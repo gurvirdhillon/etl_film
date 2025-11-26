@@ -14,7 +14,7 @@ def main():
         # Call the ETL for dev environment
         print("Running ETL in development mode...")
         # your ETL logic here
-    elif env == "prod":
+    elif env == "test":
         print("Running ETL in production mode...")
         # prod ETL logic here
     else:
